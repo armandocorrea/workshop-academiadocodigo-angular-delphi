@@ -1,0 +1,10 @@
+name workshop
+
+create table usuario (
+  id serial primary key not null,  
+  nome varchar(250) not null,
+  email varchar(250) not null,
+  senha varchar(50) not null
+);
+
+ALTER DATABASE postgres SET search_path TO public, workshop;
