@@ -1,0 +1,11 @@
+{
+	"name": "configurador",
+	"description": "",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {
+		"https://github.com/academiadocodigo/localcache4d": "^1.0.4"
+	}
+}

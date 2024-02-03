@@ -1,0 +1,14 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2023-08-16T22:02:35.4152289-03:00",
+	"installedModules": {
+		"https://github.com/academiadocodigo/localcache4d": {
+			"name": "localcache4d",
+			"version": "1.0.4",
+			"hash": "78a7747cc7f2f79822d67610672800a5",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}
