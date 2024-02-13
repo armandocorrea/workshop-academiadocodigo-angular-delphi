@@ -30,9 +30,14 @@ type
     btnTestar: TButton;
     FDConnection1: TFDConnection;
     FDPhysPgDriverLink1: TFDPhysPgDriverLink;
+    VendorLib: TLabel;
+    edtVendorLib: TEdit;
+    btnVendorLib: TButton;
+    FileOpenDialog1: TFileOpenDialog;
     procedure btnGravarClick(Sender: TObject);
     procedure btnTestarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnVendorLibClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,6 +66,7 @@ begin
     xConfiguration.Port     := edtPort.Text;
     xConfiguration.Server   := edtServer.Text;
     xConfiguration.Schema   := edtSchema.Text;
+    xConfiguration.VendorLib := edtVendorLib.Text;
 
     xConfiguration.SaveConfiguration;
 
@@ -87,6 +93,8 @@ begin
       FDConnection1.Params.Add('MetaDefSchema=' + edtSchema.Text);
     end;
 
+    FDPhysPgDriverLink1.VendorLib := edtVendorLib.Text;
+
     FDConnection1.Connected := True;
     if FDConnection1.Connected then
     begin
@@ -101,6 +109,12 @@ begin
   end;
 end;
 
+procedure TForm2.btnVendorLibClick(Sender: TObject);
+begin
+  if FileOpenDialog1.Execute then
+    edtVendorLib.Text := FileOpenDialog1.FileName;
+end;
+
 procedure TForm2.FormCreate(Sender: TObject);
 var
   xConfiguration: TConfiguration;
@@ -109,13 +123,14 @@ begin
   try
     xConfiguration.LoadConfiguration;
 
-    edtDriverID.Text := xConfiguration.DriverID;
-    edtDatabase.Text := xConfiguration.Database;
-    edtUsername.Text := xConfiguration.Username;
-    edtPassword.Text := xConfiguration.Password;
-    edtPort.Text     := xConfiguration.Port;
-    edtServer.Text   := xConfiguration.Server;
-    edtSchema.Text   := xConfiguration.Schema;
+    edtDriverID.Text  := xConfiguration.DriverID;
+    edtDatabase.Text  := xConfiguration.Database;
+    edtUsername.Text  := xConfiguration.Username;
+    edtPassword.Text  := xConfiguration.Password;
+    edtPort.Text      := xConfiguration.Port;
+    edtServer.Text    := xConfiguration.Server;
+    edtSchema.Text    := xConfiguration.Schema;
+    edtVendorLib.Text := xConfiguration.VendorLib;
   finally
     FreeAndNil(xConfiguration);
   end;

@@ -12,17 +12,19 @@ type
       FServer: String;
       FSchema: String;
       FPassword: String;
+      FVendorLib: String;
     public
       procedure SaveConfiguration;
       procedure LoadConfiguration;
 
-      property DriverID: String read FDriverID write FDriverID;
-      property Database: String read FDatabase write FDatabase;
-      property Username: String read FUsername write FUsername;
-      property Password: String read FPassword write FPassword;
-      property Port: String     read FPort     write FPort;
-      property Server: String   read FServer   write FServer;
-      property Schema: String   read FSchema   write FSchema;
+      property DriverID: String  read FDriverID  write FDriverID;
+      property Database: String  read FDatabase  write FDatabase;
+      property Username: String  read FUsername  write FUsername;
+      property Password: String  read FPassword  write FPassword;
+      property Port: String      read FPort      write FPort;
+      property Server: String    read FServer    write FServer;
+      property Schema: String    read FSchema    write FSchema;
+      property VendorLib: String read FVendorLib write FVendorLib;
   end;
 
 implementation
@@ -43,6 +45,7 @@ begin
   LocalCache.TryGetItem('Port', FPort);
   LocalCache.TryGetItem('Server', FServer);
   LocalCache.TryGetItem('Schema', FSchema);
+  LocalCache.TryGetItem('VendorLib', FVendorLib);
 end;
 
 procedure TConfiguration.SaveConfiguration;
@@ -56,6 +59,7 @@ begin
   LocalCache.SetItem('Port', Port);
   LocalCache.SetItem('Server', Server);
   LocalCache.SetItem('Schema', Schema);
+  LocalCache.SetItem('VendorLib', VendorLib);
 
   LocalCache.SaveToStorage('WorkshopAngularDelphi.lc4');
 end;

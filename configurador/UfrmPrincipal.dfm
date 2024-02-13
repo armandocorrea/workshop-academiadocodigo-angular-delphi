@@ -2,8 +2,8 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Configurador Banco'
-  ClientHeight = 276
-  ClientWidth = 279
+  ClientHeight = 320
+  ClientWidth = 275
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -56,10 +56,17 @@ object Form2: TForm2
   end
   object Label7: TLabel
     Left = 8
-    Top = 176
+    Top = 231
     Width = 42
     Height = 15
     Caption = 'Schema'
+  end
+  object VendorLib: TLabel
+    Left = 8
+    Top = 176
+    Width = 56
+    Height = 15
+    Caption = 'Vendor Lib'
   end
   object edtDriverID: TEdit
     Left = 8
@@ -112,37 +119,60 @@ object Form2: TForm2
   end
   object edtSchema: TEdit
     Left = 8
-    Top = 197
+    Top = 252
     Width = 121
     Height = 23
-    TabOrder = 6
+    TabOrder = 7
     TextHint = 'workshop'
   end
   object btnGravar: TButton
     Left = 144
-    Top = 234
+    Top = 285
     Width = 121
     Height = 25
     Caption = 'Gravar'
-    TabOrder = 7
+    TabOrder = 8
     OnClick = btnGravarClick
   end
   object btnTestar: TButton
     Left = 8
-    Top = 234
+    Top = 285
     Width = 121
     Height = 25
     Caption = 'Testar Conex'#227'o'
-    TabOrder = 8
+    TabOrder = 9
     OnClick = btnTestarClick
   end
+  object edtVendorLib: TEdit
+    Left = 8
+    Top = 197
+    Width = 235
+    Height = 23
+    TabOrder = 6
+    TextHint = 'libpq.dll'
+  end
+  object btnVendorLib: TButton
+    Left = 244
+    Top = 197
+    Width = 21
+    Height = 23
+    Caption = '...'
+    TabOrder = 10
+    OnClick = btnVendorLibClick
+  end
   object FDConnection1: TFDConnection
-    Left = 152
-    Top = 168
+    Left = 64
+    Top = 104
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files (x86)\PostgreSQL\10\bin\libpq.dll'
-    Left = 216
-    Top = 168
+    Left = 176
+    Top = 104
+  end
+  object FileOpenDialog1: TFileOpenDialog
+    FavoriteLinks = <>
+    FileTypes = <>
+    Options = []
+    Left = 200
+    Top = 224
   end
 end
